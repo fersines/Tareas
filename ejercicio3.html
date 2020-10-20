@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+
+  <style>
+
+  /*
+
+    Sin tocar nada entre abre-body y cierra-body ;-)
+    y SIEMPRE usando variables, haz que el texto «Hola mundo»
+    aparezca escrito todo en mayúsculas, de color verde
+    con un tamaño de 50 pixels y fondo rosa.
+    
+    Consigue, además, que mientras el cursor esté
+    sobre el texto, el fondo pase a ser amarillo
+    el texto recupere su estado actual de «no-todo-mayúsculas»
+    y se desplace un poquito hacia abajo.
+
+    Te dejo algunas pistas sobre el tema de variables.
+    
+  */
+
+    :root{
+      --color1: green;
+      --size: 25px;
+      --color2: pink;
+      --text-transform1: uppercase;
+      --color3: yellow; 
+      --text-transform2: none;
+      --size2: 7px
+    }
+
+    h1{
+      color: var(--color1);
+      font-size: calc(2 * var(--size));
+      background-color: var(--color2);
+      text-transform: var(--text-transform1);  
+    }
+
+    h1:hover{
+      background-color:var(--color3);
+      text-transform: var(--text-transform2);
+      transform: translateY(var(--size2));
+    }
+  
+  </style>
+  
+  
+  </head>
+<body>
+  
+  <h1>Hola mundo</h1>
+  
+</body>
+</html>

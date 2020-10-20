@@ -1,0 +1,234 @@
+<!--
+
+    Sí, está vacío. :-)
+    Crea un documento html con todos los metas que hemos visto en el curso.
+
+    En el body crea un grid que sea con cinco o seis divisiones
+    (libertad total en sus contenidos) con tal de que:
+
+    - el en móviles sea una columna,
+    - en tablets sean dos columnas,
+    - en ordenadores sean cuatro columnas,
+    - una de las columnas no se vea en móviles
+    - otra columna diferente no se vea en tablets
+    - una de las columnas que se vean en todos los dispositivos
+      contenga un vídeo de Youtube incrustado.
+    - otra de las columnas que se vean en todos los dispositivos
+      contenga un formulario que, a su vez, contenga:
+      - Un input múltiple tipo checkbox con varias opciones seleccionables
+      - Un campo texto
+      - Un campo fecha
+      - Un campo para elegir color
+      - Un input múltiple tipo radio con una única opción seleccionable
+      
+      El formulario ha de enviar los datos por el método get
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dar cera, pulir cera</title>
+
+<meta name="title" content="Una historia de Karate Kid"> 
+<meta name="description" content="Cuando te das cuenta que sí sabías algo"> 
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://laquesea.com">
+<meta property="og:title" content="Una historia de Karate Kid">
+<meta property="og:description" content="Cuando te das cuenta que sí sabías algo">
+<meta property="og:image" content="https://fakeimg.pl/250x100/"> 
+
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://laquesea.com">
+<meta property="twitter:title" content="Una historia de Karate Kid">
+<meta property="twitter:description" content="Todo tuitero/a podría verse identificado">
+<meta property="twitter:image" content="https://fakeimg.pl/250x100/">
+
+<link rel="alternate" href="https://laquesea.com" hreflang="es-ES" />
+<link rel="alternate" href="https://laquesea.com" hreflang="es-EN" />
+
+<link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+<meta name="geo.region" content="ES-GA" />
+<meta name="geo.placename" content="Santiago de Compostela" />
+<meta name="geo.position" content="42.880422;-8.545861" />
+<meta name="ICBM" content="42.880422, -8.545861" />
+
+<style>
+
+.header { grid-area: header; }
+.video { grid-area: video; }
+.musica { grid-area: musica;}
+.formulario { grid-area: formulario; }
+.publi { grid-area: publi; }
+.footer { grid-area: footer; display: none; }
+
+main{
+  display: grid;
+  grid-gap: 10px;
+  grid-template-areas:
+    "header"
+    "video"
+    "musica"
+    "formulario"
+    "publi";
+}
+
+.container{
+  margin: 10px 0;
+}
+
+.header{
+  background: rosybrown ;
+  border: 2px solid red;
+}
+
+.musica{
+  background: lightgreen;
+  border: 2px solid red;
+}
+
+.video{
+  background: seagreen;
+  border: 2px solid red;
+
+}
+
+.formulario{
+  background: skyblue;
+  border: 2px solid red;
+}
+
+.publi{
+  background: tomato;
+  border: 2px solid red;
+}
+
+.footer{
+  background: violet;
+  border: 2px solid red;
+}
+
+@media (min-width: 500px) {
+
+.publi { display: none;}
+.footer { display: initial;}
+
+main{
+    display: grid;
+    grid-template-columns: 25% 1fr;
+    grid-template-areas:
+        "header   header"
+        "video    formulario"
+        "musica   formulario"
+        "footer   footer";
+}
+
+}
+
+@media (min-width: 700px) {
+
+.footer { display: initial; }
+
+main{
+    display: grid;
+    grid-template-columns: 20% 1fr 20% 20%;
+    grid-template-areas: 
+        "header   header    header    header"
+        "video    video   formulario formulario"
+        "video    video   formulario formulario"
+        "footer   footer    musica    musica";
+}
+
+}
+</style>
+
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="header">Header</div>
+
+    <div class="video">
+      <iframe width="499" height="280" src="https://www.youtube.com/embed/2fKS1hb6yaw" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <div class="musica">
+      <p>Aquí podríamos poner una canción</p>
+    </div>
+
+    <div class="formulario">
+
+      <form action="#" method="get"></form>
+
+        <div>
+          <label for="nombre">Nombre:</label>
+          <input type="text" maxlength="10" name="nombre" id="nombre" placeholder="Aquí tu nombre" value="" tabindex="1" required />
+        </div>
+
+        <div>
+          <label for="fecha">Fecha a celebrar</label>
+          <input type="date" name="fecha" id="fecha" placeholder="AAAA-MM-DD" value="" tabindex="1" required />
+        </div>
+
+        <div>
+          <p>Elige tu comida favorita</p>
+          <label for="Pizza">Pizza</label>
+          <input type="radio" name="comida" id="pizza" tabindex="1" value="pizza">
+          <label for="Pizza">Fish & Chips</label>
+          <input type="radio" name="comida" id="fish" tabindex="2" value="fish">
+          <label for="Pizza">Paella</label>
+          <input type="radio" name="comida" id="paella" tabindex="3" value="paella">
+        </div>
+
+        <div>
+          <label for="color">Despliega y marca el color que te define</label>
+          <input type="color" name="color" id="color" value="" />
+        </div>
+
+        <div>
+          <p>Cual de estas canciones conoces</p>
+          <label for="cancion1">A velas vir</label>
+          <input type="checkbox" name="canciones[]" id="cancion1" value="cancion1" />
+          <label for="cancion2">I got you babe</label>
+          <input type="checkbox" name="canciones[]" id="cancion2" value="cancion2" />
+          <label for="cancion3">Hoy puede ser un gran día</label>
+          <input type="checkbox" name="canciones[]" id="cancion3" value="cancion3" />
+          <label for="cancion4">Desire</label>
+          <input type="checkbox" name="canciones[]" id="cancion4" value="cancion4" />
+        </div>
+
+        <div>
+          <input type="submit" value="Lánzalo!">
+        </div>
+
+    </div>
+
+    <div class="publi">Publi</div>
+
+    <div class="footer">Footer</div>
+
+  </div>
+  
+</body>
+</html>
